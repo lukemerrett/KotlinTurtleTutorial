@@ -11,3 +11,9 @@ data class Turtle (
     val penState: PenState,
     val colour: Colour)
 
+interface Command
+
+data class Move (val distance: Float) : Command
+data class Turn (val direction: TurnDirection, val degrees: Float) : Command
+data class SetPen (val penState: PenState) : Command
+data class SetColour (val colour: Colour) : Command
