@@ -40,3 +40,24 @@ fun processCommand (turtle: Turtle, command: Command): Turtle {
         else -> turtle
     }
 }
+
+fun main() {
+    val initialTurtle = Turtle(0.0, 0.0, 90.0, PenState.Down, Colour.Black)
+
+    val commands = listOf(
+        Move(20.0),
+        Turn(Direction.Left, 90.0),
+        Move(20.0),
+        Turn(Direction.Right, 90.0),
+        SetColour(Colour.Red),
+        Move(20.0),
+        Turn(Direction.Right, 90.0),
+        SetPen(PenState.Up),
+        Move(40.0)
+    )
+
+    val movedTurtle = commands.fold(initialTurtle, { turtle, command -> processCommand(turtle, command) })
+
+    println(initialTurtle)
+    println(movedTurtle)
+}
